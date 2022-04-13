@@ -89,7 +89,7 @@ public class FXMLController implements Initializable {
         // field is empty or invalid.
         createButton.disableProperty()
                 .bind(listView.getSelectionModel().selectedItemProperty().isNotNull()
-                        .or(modifiedProperty.not()).or(wordTextField.textProperty().isEmpty())
+                        .or(wordTextField.textProperty().isEmpty())
                         .or(frequencyTextField.textProperty().isEmpty())
                         .or(definitionTextArea.textProperty().isEmpty()));
     }
