@@ -85,8 +85,13 @@ public class FXMLController implements Initializable {
                         .or(frequencyTextField.textProperty().isEmpty())
                         .or(definitionTextArea.textProperty().isEmpty()));
 
-        // TODO: Disable the Create button if an existing entry is selected or any
+        // Disable the Create button if an existing entry is selected or any
         // field is empty or invalid.
+        createButton.disableProperty()
+                .bind(listView.getSelectionModel().selectedItemProperty().isNotNull()
+                        .or(modifiedProperty.not()).or(wordTextField.textProperty().isEmpty())
+                        .or(frequencyTextField.textProperty().isEmpty())
+                        .or(definitionTextArea.textProperty().isEmpty()));
     }
 
     private void addListeners() {
